@@ -28,6 +28,8 @@
         <module>xc-service-manage-media-processor</module>
         <module>xc-service-learning</module>
         <module>xc-service-ucenter-auth</module>
+        <module>xc-service-ucenter</module>
+        <module>xc-govern-gateway</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
