@@ -152,31 +152,23 @@ public class CourseService {
 
     }
 
-    //课程列表分页查询
-    public QueryResponseResult<CourseInfo> findCourseList(int page, int size, CourseListRequest
-            courseListRequest) {
-        if (courseListRequest == null) {
+    //查询我的课程
+    public QueryResponseResult<CourseInfo> findCourseList(String company_id, int page, int size, CourseListRequest courseListRequest) {
+        if(courseListRequest == null){
             courseListRequest = new CourseListRequest();
         }
-        if (page <= 0) {
-            page = 0;
-        }
-        if (size <= 0) {
-            size = 20;
-        }
-        //设置分页参数
+        //将公司id参数传入dao
+        courseListRequest.setCompanyId(company_id);
+        //分页
         PageHelper.startPage(page, size);
-        //分页查询
+        //调用dao
         Page<CourseInfo> courseListPage = courseMapper.findCourseListPage(courseListRequest);
-        //查询列表
         List<CourseInfo> list = courseListPage.getResult();
-        //总记录数
         long total = courseListPage.getTotal();
-        //查询结果集
         QueryResult<CourseInfo> courseIncfoQueryResult = new QueryResult<CourseInfo>();
         courseIncfoQueryResult.setList(list);
         courseIncfoQueryResult.setTotal(total);
-        return new QueryResponseResult<CourseInfo>(CommonCode.SUCCESS, courseIncfoQueryResult);
+        return new QueryResponseResult<CourseInfo>(CommonCode.SUCCESS,courseIncfoQueryResult);
     }
 
     //添加课程提交
