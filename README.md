@@ -4,7 +4,7 @@
 
 使用技术
 
-SpringCloud、ElasticSearch、Redis、RabbitMQ、Mysql、MongoDB、Mybatis、JPA、Spring Security、Spring Task、GridFS、Nginx等
+SpringCloud、ElasticSearch、Redis、RabbitMQ、Mysql、MongoDB、Mybatis、Spring Security、Spring Task、GridFS、Nginx等
 
 
 挺复杂，学习的时候遇到很多困难。
